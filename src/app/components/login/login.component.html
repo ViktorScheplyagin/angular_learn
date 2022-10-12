@@ -1,1 +1,16 @@
-<p>login works!</p>
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <label>
+      Email:
+      <input formControlName="email" type="email" />
+      <p *ngIf="isEmailInvalid">The email is invalid</p>
+    </label>
+    <label>
+      Password:
+      <input formControlName="password" type="password" />
+      <p *ngIf="isPasswordInvalid">The password is too short</p>
+    </label>
+
+    <button [disabled]="loginForm.invalid" type="submit">Send</button>
+  </form>
+</div>
